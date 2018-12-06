@@ -22,9 +22,17 @@ h2 {
 }
 
 
-body, html {
+ body, html {
     height: 100%;
     font-family: 'Special Elite', cursive;
+}
+
+body{
+    background-repeat: no-repeat;
+    background-image: url("pagebackround.jpg");
+    background-attachment: fixed;
+    width: 1920px;
+    height: 1080px;
 }
 
 /* The hero image */
@@ -39,7 +47,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: center;
 }
 
 /* Place text in the middle of the image */
