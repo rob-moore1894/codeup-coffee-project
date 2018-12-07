@@ -1,5 +1,7 @@
 "use strict";
 
+//Showing All Coffee List----------------------------------
+
 function renderCoffee(coffee) {
     var html = "<div id='coffee.id' class='card col-6 bg-light float-left text-capitalize animated flipInX'>";
     if (coffee.roast === "Light"){
@@ -15,6 +17,8 @@ function renderCoffee(coffee) {
     return html;
 }
 
+//List of Select Options
+
 function renderCoffeeSelect(coffee) {
     var html = "<option value=\"" + coffee.name + "\">";
     html += "" + coffee.name;
@@ -22,6 +26,8 @@ function renderCoffeeSelect(coffee) {
 
     return html;
 }
+
+//Making New List of Coffees
 
 function renderCoffees(coffees) {
     var html = '';
@@ -32,6 +38,8 @@ function renderCoffees(coffees) {
     return html;
 }
 
+//Making the Select Option
+
 function renderCoffeesForSelect(coffees) {
     var html = '';
     coffees.forEach(function (coffee) {
@@ -40,6 +48,8 @@ function renderCoffeesForSelect(coffees) {
 
     return html;
 }
+
+// Filter through Roasts
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -55,12 +65,15 @@ function updateCoffees(e) {
     main.innerHTML = renderCoffees(filteredCoffees);
 }
 
+//Filter through Coffee Name
+
 function searchCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedCoffee = coffeeSearch.value;
+    console.log(selectedCoffee);
     var filteredCoffees = [];
     coffees.forEach(function(coffee) {
-        if ((coffee.name.toLowerCase()).includes(selectedCoffee.toLowerCase()) === true) {
+        if ((coffee.name.toLowerCase()).includes(selectedCoffee.toLowerCase())) {
             filteredCoffees.push(coffee);
         } else if (selectedCoffee === "") {
             filteredCoffees = coffees;
@@ -68,16 +81,19 @@ function searchCoffees(e) {
     });
     main.innerHTML = renderCoffees(filteredCoffees);
 }
+
+//Add New Coffee
+
 function addNewCoffee (e) {
     e.preventDefault();
     var newCoffee = {};
     for (var i = 0; i < coffees.length; i++) {
         if (coffees[i].name === newCoffeeName.value && coffees[i].roast === newCoffeeRoast.value) {
-            return "Nope";
+             return alert("We already have that!");
         }
     }
     if (newCoffeeName.value === "") {
-        return "Why would you?";
+        return alert("We need a name!");
     } else {
         newCoffee.name = newCoffeeName.value;
         newCoffee.roast = newCoffeeRoast.value;
