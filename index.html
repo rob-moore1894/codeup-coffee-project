@@ -2,67 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coffee</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Surplus Coffee Order</title>
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">SC</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="">News</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
+<div class="navbar">
+    <a class="navbar-brand" href="#">SC</a>
+    <a class="navbar-nav ml-auto" href="#home">Home</a>
+    <a href="#news">News</a>
+</div>
+<div class="container mb-3 mx-auto">
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Surplus Coffee</h1>
+            <p>Just like the Army, but worse.</p>
         </div>
-    </nav>
-</div>
-
-<div class="hero-image">
-    <div class="hero-text">
-        <h1>Surplus Coffee</h1>
-        <p>Just like the Army, but worse.</p>
     </div>
-</div>
-
-<div class="container">
-<form>
-    <label for="browser-default roast-select">Select Roast</label>
-        <select class="browser-default roast-select">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="1">Light</option>
-            <option value="2">Medium</option>
-            <option value="3">Dark</option>
-        </select>
-    <label for="submit"></label>
-    <input id="submit" type="submit" />
-</form>
-
-<table>
-    <thead>
-    <tr style="color: white">
-    </tr>
-    </thead>
-    <tbody id="coffees"></tbody>
-</table>
-
-<div class="row">
-    <div class="col s12 m6">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">Light City</span>
-                <p>Light</p>
+    <div class="row">
+        <div class="col-7 pl-0">
+            <div id="cup-size" class="row mb-3">
+                <div class="card coffeeCard">
+                    <div class="card-body">
+                        <h4>Small</h4>
+                        <p class="card-text">Cheap Coffee Here!</p>
+                    </div>
+                </div>
+                <div class="card coffeeCard">
+                    <div class="card-body">
+                        <h4>Medium</h4>
+                        <p class="card-text">Still cheaper but you get more joe!</p>
+                    </div>
+                </div>
+                <div class="card coffeeCard">
+                    <div class="card-body">
+                        <h4>Large</h4>
+                        <p class="card-text">Most joe you can find here!</p>
+                    </div>
+                </div>
             </div>
+            <main id="coffees"></main>
         </div>
+
+        <div class="col-5" id="form-boy mt-3">
+            <form>
+                <div class="row card bg-light p-3 mb-3">
+                    <label for="roast-selection">Select roast</label>
+                    <select id="roast-selection" class="form-control">
+                        <option>All</option>
+                        <option>Light</option>
+                        <option>Medium</option>
+                        <option>Dark</option>
+                    </select>
+                    <label for="search">Search coffee by name</label>
+                    <input type="search" id="search" class="search form-control" placeholder="Bean Find">
+                    <button id="submit" class="form-control mt-4 btn btn-success" type="submit">Start Your Day</button>
+                </div>
+            </form>
+            <form action="#">
+                <div class="row card bg-light p-3 mb-3">
+                    <label for="roast-suggestion">Select roast</label>
+                    <select id="roast-suggestion" class="form-control">
+                        <option value="White">White</option>
+                        <option value="Light">Light</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Dark">Dark</option>
+                        <option value="Black">Black</option>
+                    </select>
+                    <label for="suggestion-name">Suggestions?</label>
+                    <input type="text" id="suggestion-name" class="search form-control" placeholder="Name of Coffee">
+                    <button id="newSuggestion" class="form-control mt-4 btn btn-success" type="submit">What you thinkin</button>
+                </div>
+            </form>
+            <form action="https://http-inspector.glitch.me/" method="post">
+                <div class="row card bg-light p-3">
+                    <label for="coffee-order">Select your coffee</label>
+                    <select name="coffee-order" id="coffee-order" class="form-control"></select>
+                    <label for="size-order">Select your coffee size</label>
+                    <select name="size-order" id="size-order" class="form-control">
+                        <option>Cheapest</option>
+                        <option>Cheaper</option>
+                        <option>Cheap</option>
+                    </select>
+                    <button id="submitOrder" class="form-control mt-4 btn btn-success" type="submit">You gotta pay for it!</button>
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
-</div>
-
 <script src="js/main.js"></script>
-<script src="js/materialize.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
 </body>
 </html>
