@@ -89,7 +89,7 @@ function addNewCoffee (e) {
     var newCoffee = {};
     for (var i = 0; i < coffees.length; i++) {
         if (coffees[i].name === newCoffeeName.value && coffees[i].roast === newCoffeeRoast.value) {
-             return alert("We already have that!");
+            return alert("We already have that!");
         }
     }
     if (newCoffeeName.value === "") {
